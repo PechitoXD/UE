@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/Style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <title>U.E. LA CUADRA DE BOLIVAR</title>
 </head>
 <body>
     
+
+    <!-- Modal de Políticas -->
+<div id="policy-modal" class="modal">
+  <div class="modal-content">
+    <h3>Política de Privacidad y Cookies</h3>
+    <p>Utilizamos cookies para mejorar tu experiencia. Al hacer clic en "Aceptar", das tu consentimiento.</p>
+    <div class="modal-buttons">
+      <button id="accept-btn" class="btn-accept">Aceptar</button>
+      <a href="https://www.privacypolicies.com/live/c476a208-2a60-46ff-a3bd-6bd1932d8109" target="_blank" class="btn-more">Leer más</a>
+    </div>
+  </div>
+</div>
+
     <div class="presentacion">
 
         <div class="menu-toggle-container">
@@ -54,12 +68,38 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025 U.E. LA CUADRA DE BOLIVAR. Todos los derechos reservados.</p>
-        <p>Contacto: <a href="https://www.instagram.com/lacuadradebolivar/?igsh=OGwwbzhpaGxwaGhv#" target="_blank" rel="noopener noreferrer">@lacuadradebolivar</a></p>
-    </footer>
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="https://www.privacypolicies.com/live/c476a208-2a60-46ff-a3bd-6bd1932d8109" target="_blank">Política de Privacidad</a>
+      <a href="https://www.privacypolicies.com/live/c476a208-2a60-46ff-a3bd-6bd1932d8109" id="cookies-btn">Política de Cookies</a>
+      <a href="contacto.html" id="contact-btn">Contacto</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/lacuadradebolivar/?igsh=OGwwbzhpaG2waGhv#" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i> @lacuadradebolivar
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2025 U.E. LA CUADRA DE BOLIVAR. Todos los derechos reservados.</p>
+  </div>
+</footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+
+        // Mostrar modal al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('cookies-accepted')) {
+            const modal = document.getElementById('policy-modal');
+            modal.style.display = 'block';
+            
+            // Aceptar cookies
+            document.getElementById('accept-btn').addEventListener('click', function() {
+                localStorage.setItem('cookies-accepted', 'true');
+                modal.style.display = 'none';
+            });
+            }
+        });
+
         // Inicialización de AOS
         AOS.init({
             once: true,

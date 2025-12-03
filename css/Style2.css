@@ -174,7 +174,7 @@
         /* Ensure correct positioning for the button on mobile */
         position: absolute; /* Or fixed, depending on desired behavior */
         top: 20px;
-        left: 50%;
+        left: 15%;
         transform: translateX(-50%);
         z-index: 1000;
     }

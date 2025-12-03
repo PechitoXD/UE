@@ -4,7 +4,60 @@
     padding: 0;
     box-sizing: border-box;
 }
+.modal {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-width: 90%;
+    width: 400px;
+    animation: fadeIn 0.5s;
+  }
 
+  .modal h3 {
+    margin-top: 0;
+    color: #007bff;
+  }
+
+  .modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .btn-accept {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn-accept:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-more {
+    background-color: #f8f9fa;
+    color: #007bff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; bottom: 0; }
+    to { opacity: 1; bottom: 20px; }
+  }
 body {
     font-family: 'Arial', sans-serif;
     color: #333;
@@ -15,7 +68,7 @@ body {
 /* Sección de presentación (Reutilizada) */
 .presentacion {
     position: relative;
-    background-image: url("../imagenes/segunda.jpg"); /* Common background for all hero sections */
+    background-image: url("../imagenes/segunda.webp"); /* Common background for all hero sections */
     /* If you need different images per page, consider adding a page-specific class to .presentacion
        e.g., <div class="presentacion presentacion-programas"> and then:
        .presentacion-programas { background-image: url("../imagenes/programas-bg.jpg"); } */
@@ -30,11 +83,11 @@ body {
 }
 
 #programa{
-    background-image: url('../imagenes/robot-looking-pensively-white-wall.jpg');
+    background-image: url('../imagenes/nosotros.webp');
 }
 
 #nosotros{
-    background-image: url('../imagenes/esta.jpg');
+    background-image: url('../imagenes/esta.webp');
 }
 
 
@@ -238,7 +291,7 @@ body {
     background-color: #0099ff2a;
 }
 #organigrama{
-    background-image: url("../imagenes/texting-business-lady.jpg");
+    background-image: url("../imagenes/texting-business-lady.webp");
 }
 .director {
     padding: 40px 20px;
@@ -395,26 +448,59 @@ body {
 }
 
 /* Footer (Reutilizado) */
+/* Estilos mejorados para el footer */
 .footer {
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-    padding: 30px 20px;
-    
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+  border-top: 2px solid #007bff;
 }
 
-.footer p {
-    margin-bottom: 8px;
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.footer a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-social a {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.footer-social a:hover {
+  color: #e1306c; /* Color de Instagram */
+}
+
+.footer-copy {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 /* Media Queries para responsividad */
@@ -532,7 +618,7 @@ body {
 .menu-toggle-container {
     position: absolute; /* O fixed si quieres que se quede visible al hacer scroll */
     top: 10px; /* Ajusta la distancia desde la parte superior */
-    left: 50%; /* Centra horizontalmente */
+    left: 15%; /* Centra horizontalmente */
     transform: translateX(-50%); /* Compensa el 50% del ancho para centrarlo perfectamente */
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
     background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco semi-transparente */
@@ -622,13 +708,10 @@ body.no-scroll {
 
     .menu-toggle-container { /* Muestra el botón hamburguesa en móviles */
         display: flex; /* O block */
-         align-items: center;
-         justify-content: center;
+        align-items: center;
+        justify-content: center;
     }
 
-    .naver.mobile-menu { /* Aplica los estilos de menú móvil */
-         /* Asegúrate de que estos estilos sean los que quieres para el menú overlay */
-    }
      .naver.mobile-menu.is-open {
          display: flex; /* Asegúrate de que se muestre como flexbox */
      }
@@ -671,10 +754,9 @@ body.no-scroll {
 
     .menu-toggle-container {
         display: flex; /* Mostrar el botón de hamburguesa */
-        /* Asegurar el posicionamiento correcto del botón en móvil */
         position: absolute; /* O fixed, dependiendo del comportamiento deseado */
         top: 20px;
-        left: 50%;
+        left: 15%;
         transform: translateX(-50%);
         z-index: 1000;
     }
