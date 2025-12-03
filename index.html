@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <title>U.E. LA CUADRA DE BOLIVAR</title>
+</head>
+<body>
+    
+    <div class="presentacion">
+
+        <div class="menu-toggle-container">
+            <div id="menu-toggle" class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="naver" id="mainNav">
+                <a href="index.html">Inicio</a>
+                <a href="organigrama.html">Organigrama</a>
+                <a href="Programa.html">Programa</a>
+                <a href="nosotros.html">Sobre nosotros</a>
+                <a href="ubicacion.html">Ubicación</a>
+                <a href="contacto.html">Contáctanos</a>
+                
+            </div>
+            <div class="h">
+                <h1><strong>U.E LA CUADRA DE BOLIVAR</strong></h1>
+                <p><strong>Disciplina y valores</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <h1>Conócenos</h1>
+        <div class="articulo1">
+            <div class="contenido1" data-aos="fade-up" data-aos-duration="1000">
+                <h3>Nuestra Historia</h3>
+                <p> Fundada en 1995, nuestra institución se ha dedicado a proporcionar educación de calidad y fomentar el crecimiento personal de nuestros estudiantes. A lo largo de los años, hemos evolucionado para adaptarnos a las necesidades cambiantes del mundo, pero nuestro compromiso con la excelencia y la integridad sigue siendo el mismo.</p>
+            </div>
+            <div class="contenido2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <h3>Nuestra Mision</h3>
+                <p> Nuestra misión es inspirar y capacitar a nuestros estudiantes para que se conviertan en líderes y ciudadanos responsables. Nos esforzamos por crear un entorno de aprendizaje inclusivo y estimulante, donde cada estudiante pueda alcanzar su máximo potencial y contribuir positivamente a la sociedad.</p>
+            </div>
+            <div class="contenido3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h3>Nuestros Valores</h3>
+                <p> Nos guiamos por valores fundamentales como la excelencia académica, la integridad, el respeto y la responsabilidad social. Creemos en la importancia de la colaboración, la innovación y el aprendizaje continuo, y nos esforzamos por inculcar estos valores en nuestros estudiantes.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 U.E. LA CUADRA DE BOLIVAR. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="https://www.instagram.com/lacuadradebolivar/?igsh=OGwwbzhpaGxwaGhv#" target="_blank" rel="noopener noreferrer">@lacuadradebolivar</a></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inicialización de AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+        
+     // --- Script para el Menú Hamburguesa ---
+     const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('mainNav'); // La navegación existente
+        const body = document.body;
+
+        menuToggle.addEventListener('click', function() {
+            // Alternar la clase 'is-open' en la navegación para mostrarla/ocultarla
+            mainNav.classList.toggle('is-open');
+            // Alternar la clase 'menu-open' en el icono para animarlo (opcional)
+            menuToggle.classList.toggle('menu-open');
+            // Alternar la clase 'no-scroll' en el body para controlar el scroll
+            body.classList.toggle('no-scroll');
+        });
+
+        // Opcional: Cerrar el menú si se hace clic en un enlace
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                 mainNav.classList.remove('is-open');
+                 menuToggle.classList.remove('menu-open');
+                 body.classList.remove('no-scroll');
+            });
+        });
+
+    </script>   
+</body>
+</html>

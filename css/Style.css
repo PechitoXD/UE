@@ -1,0 +1,913 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.7;
+    background-color: #f8f9fa;
+}
+
+/* Sección de presentación (Reutilizada) */
+.presentacion {
+    position: relative;
+    background-image: url("../imagenes/segunda.jpg"); /* Common background for all hero sections */
+    /* If you need different images per page, consider adding a page-specific class to .presentacion
+       e.g., <div class="presentacion presentacion-programas"> and then:
+       .presentacion-programas { background-image: url("../imagenes/programas-bg.jpg"); } */
+    background-size: cover;
+    background-position: center;
+    height: 65vh; /* Slightly adjusted height for inner pages */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+#programa{
+    background-image: url('../imagenes/robot-looking-pensively-white-wall.jpg');
+}
+
+#nosotros{
+    background-image: url('../imagenes/esta.jpg');
+}
+
+
+.presentacion .h { /* For the homepage specific text container */
+    padding: 20px;
+    max-width: 800px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.overlay .naver {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.overlay .naver a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 16px;
+    margin-left: 25px;
+    padding: 8px 0;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.naver a:hover {
+    color: #ffd700;
+    border-bottom-color: #ffd700;
+}
+
+.overlay h1 {
+    color: white;
+    font-size: 2.8em; /* Adjusted for general use */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+#naverPrograma a:hover{
+    color: #001aff;
+    border-bottom-color: #001aff;
+    transition: 0.3s;
+}
+
+#nosotros a:hover{
+    color: #00ff22;
+    border-bottom-color: #00ff37;
+    transition: 0.3s;
+}
+#organigaramaNaver a:hover{
+    color: #0099ff;
+    border-bottom-color: #0099ff;
+    transition: 0.3s;
+}
+.overlay p {
+    color: #e0e0e0;
+    font-size: 1.2em;
+    font-weight: 300;
+    max-width: 700px;
+}
+
+/* Sección de contenido (Home: .contenido, Otros: .content) */
+
+
+
+.contenido, .content {
+    padding: 60px 5%; /* Adjusted padding */
+}
+.contenido{
+    background-color: #f3e8aa42;
+    border-bottom: solid 3px #ffffff;
+    border-top: solid 3px #ffffff;
+}
+#nosotrosContenido{
+    background-color: #bcffca36;
+    border-bottom: solid 3px #ffffff;
+    border-top: solid 3px #ffffff;
+}
+.content{
+    background-color: #a8b1ff3d;
+    border-top: solid 3px #ffffff;
+    border-bottom: solid 3px #ffffff;
+}
+.contenido h1, .content > h1 { /* Main title for the content section */
+    text-align: center;
+    font-size: 2.6em; /* Adjusted size */
+    margin-bottom: 45px; /* Adjusted margin */
+    color: #2c3e50;
+}
+
+/* Estilos para las tarjetas de la página de inicio (.articulo1) */
+.articulo1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px; /* Max width for these cards container */
+    margin: 0 auto;
+}
+
+.articulo1 .contenido1,
+.articulo1 .contenido2,
+.articulo1 .contenido3 {
+    flex: 1 1 300px; /* Allow cards to grow and shrink, base width 300px */
+    min-width: 280px;
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.articulo1 .contenido1:hover,
+.articulo1 .contenido2:hover,
+.articulo1 .contenido3:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.articulo1 h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+.articulo1 p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Contenedor general para items en .content (Usado en "Sobre Nosotros" y "Programas") */
+.content-info {
+    display: grid;
+    gap: 30px;
+    max-width: 1100px; /* Max width for the grid */
+    margin: 0 auto; /* Centering the grid */
+    /* Default to a responsive multi-column grid for .programa cards */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+}
+
+/* Tarjetas de "Sobre Nosotros" (.critica-card) */
+.content-info > .critica-card { /* Target .critica-card specifically if it's a direct child of .content-info */
+    grid-column: 1 / -1; /* Make .critica-card span all columns to maintain its layout */
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.content-info > .critica-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.critica-card .foto {
+    flex: 1 1 300px;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.critica-card .texto {
+    flex: 2 1 400px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.critica-card .texto h3 {
+    font-size: 1.7em;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.critica-card .texto p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #555;
+}
+ 
+/*organigrama */
+
+/* Secciones del organigrama */
+
+.contenidoOrganigrama{
+    background-color: #0099ff2a;
+}
+#organigrama{
+    background-image: url("../imagenes/texting-business-lady.jpg");
+}
+.director {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: solid 3px #3498db;
+    
+}
+
+.director h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.director h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #3498db;
+    margin: 10px auto;
+}
+
+.directores {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.tarje {
+    background-color: white;
+    border-radius: 10px;
+    border: solid #3498db 2px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.541);
+    overflow: hidden;
+    width: 220px;
+    width: auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    padding-bottom: 20px;
+}
+#tituloNombre{
+    padding-bottom: 50px;
+}
+.tarje:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(42, 168, 218, 0.445);
+}
+
+.tarje img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #3498db;
+}
+
+.tarje p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+
+
+/* --- Parte del CSS que controla la navegación (.naver y enlaces) --- */
+
+/* Estilos de navegación en Desktop */
+/* Esto es similar a lo que ya tenías para pantallas grandes */
+.overlay .naver {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    /* Asegura que se muestre en desktop */
+    display: flex; /* Usamos flexbox para alinear en fila en desktop */
+    flex-direction: row;
+    align-items: center; /* Centra verticalmente los enlaces si tienen diferentes alturas */
+}
+
+.overlay .naver a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 16px;
+    margin-left: 25px;
+    padding: 8px 0;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    border-bottom: 2px solid transparent;
+    /* Asegura que se muestre como bloque/inline-block en desktop */
+    display: inline-block;
+}
+
+
+
+
+
+/* --- Asegúrate de que tus estilos de hover para desktop sigan funcionando --- */
+/* (Ya están definidos fuera de las media queries, lo cual es correcto) */
+.naver a:hover {
+    color: #ffd700;
+    border-bottom: solid 2px #ffd700;
+    transition: 0.05s;
+}
+
+/* ... otros estilos de tu archivo Style.css ... */
+.tarje{
+    width: 240px;
+    height: 260px;
+    border-radius: 15%;
+}
+
+.tarje p{
+    text-align: center;
+}
+.tarje img{
+    width: 100%;
+    height: 80%;
+    border-top-right-radius: 38px;
+    border-top-left-radius: 38px;
+}
+
+/* Nuevos estilos para las tarjetas de la página "Programas" (.programa) */
+.programa { /* These will flow into the .content-info grid */
+    background-color: #ffffff;
+    padding: 30px 25px; /* More vertical padding */
+    border-radius: 6px; /* Consistent border-radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Softer shadow for program cards */
+    border: 1px solid #e9ecef; /* Subtle border */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+}
+.programa img{
+    width: 100%;
+    height: 200px;
+}
+.programa:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    border-color: #d0d8e0;
+}
+
+.programa h3 {
+    font-size: 1.4em; /* Slightly smaller H3 for program cards */
+    color: #2c3e50; /* Darker, more prominent H3 color */
+    margin-bottom: 12px;
+}
+
+.programa p {
+    font-size: 0.9em; /* Slightly smaller paragraph text */
+    line-height: 1.6;
+    color: #666; /* Lighter paragraph text */
+}
+
+/* Footer (Reutilizado) */
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    
+}
+
+.footer p {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 992px) {
+    .overlay h1 { font-size: 2.5em; }
+    .overlay p { font-size: 1.1em; }
+    .content-info { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } /* Adjust minmax for tablets */
+
+    .critica-card .foto {
+        flex-basis: 250px;
+        min-height: 250px;
+    }
+    .critica-card .texto { padding: 25px; }
+}
+
+@media (max-width: 768px) {
+    .presentacion { height: 60vh; }
+    .overlay .naver {
+        top: 20px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto; /* Adjust width to content */
+        text-align: center;
+    }
+    .overlay .naver a {
+        font-size: 14px;
+        margin: 0 10px;
+        display: inline-block;
+    }
+    .overlay h1 { font-size: 2.2em; }
+    .overlay p { font-size: 1em; }
+
+    .contenido h1, .content > h1 { font-size: 2em; margin-bottom: 35px;}
+
+    .articulo1 { flex-direction: column; gap: 20px; } /* Stack home cards */
+    .articulo1 .contenido1,
+    .articulo1 .contenido2,
+    .articulo1 .contenido3 {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .content-info {
+        grid-template-columns: 1fr; /* Single column for all cards in .content-info on mobile */
+        gap: 20px;
+    }
+    /* .critica-card will naturally be single column. Ensure its flex children stack: */
+    .content-info > .critica-card {
+        flex-direction: column;
+    }
+    .critica-card .foto {
+        min-height: 220px;
+    }
+    .critica-card .texto { padding: 20px; }
+
+    .programa { padding: 20px; }
+    .programa h3 { font-size: 1.3em; }
+    .programa p { font-size: 0.85em; }
+}
+
+@media (max-width: 480px) {
+    .presentacion { height: 55vh; }
+    .overlay .naver { display: flex; flex-direction: column; gap: 5px; background-color: rgba(0,0,0,0.3); padding:10px; border-radius: 5px;}
+    .overlay .naver a { font-size: 13px; margin: 0 5px; border-bottom: none; padding: 5px;}
+    .overlay .naver a:hover { color: #ffd700; background-color: rgba(255,255,255,0.1) }
+    .overlay h1 { font-size: 1.8em; }
+    .overlay p { font-size: 0.9em; }
+
+    .contenido, .content { padding: 40px 4%; }
+    .contenido h1, .content > h1 { font-size: 1.8em; margin-bottom: 30px;}
+}
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Ocultar el menú inicialmente en móviles */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .naver {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .naver.active {
+        display: flex;
+    }
+
+    .naver a {
+        padding: 10px;
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+/****************************/
+
+/* Contenedor del botón hamburguesa */
+.menu-toggle-container {
+    position: absolute; /* O fixed si quieres que se quede visible al hacer scroll */
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Compensa el 50% del ancho para centrarlo perfectamente */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde semi-transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 5px 10px; /* Espacio interno para que el contenedor sea más grande que el botón */
+    cursor: pointer; /* Indica que es clickeable */
+    display: none; /* Por defecto, oculto en escritorio. Lo mostraremos con media queries */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque si el navegador lo soporta */
+    -webkit-backdrop-filter: blur(5px); /* Prefijo para Safari */
+}
+
+/* Estilo básico para el ícono hamburguesa (puedes usar un SVG o imagen en su lugar) */
+.hamburger-icon {
+    width: 25px; /* Ancho del ícono */
+    height: 20px; /* Alto del ícono */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 2px; /* Grosor de las líneas */
+    background-color: white; /* Color de las líneas */
+    transition: all 0.3s ease; /* Transición suave para la animación (opcional) */
+}
+
+/* Clases para animar el ícono al abrir (opcional) */
+.menu-open .hamburger-icon span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-open .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+.menu-open .hamburger-icon span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* Estilos para el menú en modo móvil (inicialmente oculto) */
+.naver.mobile-menu {
+    display: none; /* Oculto por defecto en móviles */
+    position: fixed; /* Menú fijo que cubre la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Altura completa de la ventana */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro semi-transparente para el overlay */
+    flex-direction: column; /* Los enlaces se apilan verticalmente */
+    justify-content: center; /* Centra los enlaces verticalmente */
+    align-items: center; /* Centra los enlaces horizontalmente */
+    z-index: 999; /* Por debajo del botón de cierre/hamburguesa */
+    /* Agrega transiciones si quieres que aparezca suavemente */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.naver.mobile-menu.is-open {
+    display: flex; /* Mostrar cuando tenga la clase 'is-open' */
+     opacity: 1;
+     visibility: visible;
+}
+
+.naver.mobile-menu a {
+    color: white; /* Color de los enlaces en el menú móvil */
+    font-size: 1.5em; /* Tamaño de fuente más grande */
+    margin: 15px 0; /* Espacio entre enlaces */
+    text-decoration: none;
+}
+
+ /* Estilo para evitar el scroll en el body cuando el menú está abierto */
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+/* --- Media Query --- */
+/* Oculta la navegación normal y muestra el botón en pantallas pequeñas */
+@media (max-width: 768px) { /* Ajusta este valor según necesites */
+    .naver#mainNav { /* Oculta la navegación original en móviles */
+        display: none;
+    }
+
+    .menu-toggle-container { /* Muestra el botón hamburguesa en móviles */
+        display: flex; /* O block */
+         align-items: center;
+         justify-content: center;
+    }
+
+    .naver.mobile-menu { /* Aplica los estilos de menú móvil */
+         /* Asegúrate de que estos estilos sean los que quieres para el menú overlay */
+    }
+     .naver.mobile-menu.is-open {
+         display: flex; /* Asegúrate de que se muestre como flexbox */
+     }
+}
+
+ /* Asegura que la navegación normal se vea en pantallas grandes */
+ @media (min-width: 769px) { /* Ajusta este valor para que coincida con el media query anterior */
+     .naver#mainNav { /* Muestra la navegación original en escritorio */
+         display: flex; /* O block, según tu diseño original */
+         /* Asegúrate de que tus estilos originales de .naver se apliquen aquí */
+     }
+
+     .naver.mobile-menu { /* Oculta el menú móvil en escritorio */
+         display: none !important; /* Usa !important si es necesario para anular otras reglas */
+     }
+ }
+
+
+/* ==========================================================================
+   ESTILOS DEL MENÚ DESPLEGABLE RESPONSIVE
+   ========================================================================== */
+/* Estilos para el menú en modo móvil (inicialmente oculto) */
+
+/* Estilos de escritorio originales para .naver (asegúrate de que estén fuera de las media queries
+   o dentro de una con min-width) */
+   .overlay .naver {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex; /* Visualización de escritorio */
+    flex-direction: row;
+    /* ... otros estilos de escritorio */
+}
+
+/* Ocultar la navegación normal y mostrar el botón de hamburguesa en móvil */
+@media (max-width: 768px) {
+    .naver#mainNav { /* Apuntar al elemento de navegación específico */
+        display: none; /* Ocultar la navegación de escritorio */
+    }
+
+    .menu-toggle-container {
+        display: flex; /* Mostrar el botón de hamburguesa */
+        /* Asegurar el posicionamiento correcto del botón en móvil */
+        position: absolute; /* O fixed, dependiendo del comportamiento deseado */
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+
+    /* Estilos para el menú móvil cuando está *abierto* */
+    /* Apuntar al elemento nav cuando tenga la clase 'is-open' */
+    .naver#mainNav.is-open { /* <--- Cambiar selector aquí */
+        display: flex; /* Mostrarlo como un contenedor flex */
+        position: fixed; /* Hacerlo un overlay de pantalla completa */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9); /* Overlay oscuro */
+        flex-direction: column; /* Apilar enlaces verticalmente */
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        /* Opacidad y visibilidad para la transición (opcional pero bueno) */
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+     /* Asegurar que los enlaces dentro del menú móvil estén estilizados correctamente */
+     .naver#mainNav.is-open a {
+         color: rgb(255, 255, 255); /* Ejemplo de color */
+         font-size: 1.5em; /* Ejemplo de tamaño */
+         margin: 15px 0 15px 200px; /* Ejemplo de espaciado */
+         /* Quitar estilos hover de escritorio si interfieren */
+         border-bottom: none;
+     }
+
+    /* Si quieres la transición, también necesitas el estado inicial oculto en móvil */
+    /* Esta regla asegura que el menú esté oculto en móvil ANTES de que se añada 'is-open',
+       pero permite la transición */
+    .naver#mainNav { /* Apuntar al nav en móvil */
+        opacity: 0; /* Inicialmente transparente */
+        visibility: hidden; /* Inicialmente oculto */
+        /* display: none ya está en la regla de arriba, pero necesitamos la transición */
+        /* Si display: none !important está causando problemas con la transición, puedes
+           eliminarlo y confiar solo en opacity/visibility si el layout lo permite */
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+}
+
+/* Asegurar que la navegación vuelva a los estilos de escritorio por encima del breakpoint móvil */
+@media (min-width: 769px) {
+    .naver#mainNav {
+        display: flex !important; /* Anular el display: none móvil */
+        /* Restablecer cualquier estilo específico de móvil */
+        position: absolute; /* O el que uses en escritorio */
+        top: 30px; /* O el que uses en escritorio */
+        right: 30px; /* O el que uses en escritorio */
+        background-color: transparent; /* O tu fondo de escritorio */
+        flex-direction: row; /* Layout de escritorio */
+        opacity: 1; /* Visible */
+        visibility: visible; /* Visible */
+        z-index: auto; /* O tu z-index de escritorio deseado */
+    }
+     .menu-toggle-container {
+         display: none !important; /* Ocultar el botón en escritorio */
+     }
+}
+
+/*ubicacion*/
+
+/* Estilos generales para la sección de ubicación */
+.ubicacion-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.ubicacion-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.ubicacion-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #e74c3c;
+    border-radius: 2px;
+}
+
+/* Contenedor principal */
+.ubicacion-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* Información de ubicación */
+.ubicacion-info {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ubicacion-info h3 {
+    color: #e74c3c;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.ubicacion-info h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+}
+
+.ubicacion-info p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
+
+.ubicacion-info ul {
+    padding-left: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.ubicacion-info li {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    position: relative;
+    list-style-type: none;
+}
+
+.ubicacion-info li::before {
+    content: '•';
+    color: #e74c3c;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Mapa */
+.ubicacion-mapa {
+    flex: 1;
+    min-width: 300px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.ubicacion-mapa iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .ubicacion-content {
+        flex-direction: column;
+    }
+    
+    .ubicacion-info, .ubicacion-mapa {
+        width: 100%;
+    }
+    
+    .ubicacion-mapa {
+        height: 350px;
+    }
+    
+    .ubicacion-section h2 {
+        font-size: 2rem;
+    }
+    
+    .ubicacion-info h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Efectos de hover para mejor interacción */
+.ubicacion-info h3 {
+    transition: color 0.3s ease;
+}
+
+.ubicacion-info h3:hover {
+    color: #c0392b;
+}
+
+.ubicacion-mapa {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ubicacion-mapa:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para las coordenadas */
+.coordenadas {
+    background-color: #f1f1f1;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    display: inline-block;
+    margin: 0.5rem 0;
+}

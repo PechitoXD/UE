@@ -1,0 +1,211 @@
+/* Estilos generales */
+body {
+    font-family: sans-serif; /* Una fuente simple y legible */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Texto principal oscuro */
+    line-height: 1.6;
+}
+
+/* Presentación */
+.presentacion {
+    background-image: url('../imagenes/group-cheerful-happy-students-sitting-lecture-hall-before-lesson.jpg '); /* Mismo color de fondo para uniformidad */
+    background-position:  center;
+    background-size: cover;
+    padding: 4rem 2rem; /* Espaciado vertical y horizontal */
+    text-align: center;
+}
+
+.overlay {
+    padding: 3rem 0; /* Reduce el padding del overlay si lo tienes */
+}
+
+.naver {
+    margin-bottom: 2rem;
+}
+
+.naver a {
+    color: #ffffff; /* Color de los enlaces de navegación */
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.overlay{
+    background-color: #3b3b3b98;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20x;
+}
+
+.naver a:hover {
+    color: #007bff; /* Un color de acento al pasar el mouse */
+}
+
+.presentacion h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff; /* Texto del título */
+}
+
+.presentacion p {
+    font-size: 1.1rem;
+    color: #ffffff; /* Texto del subtítulo */
+    margin-bottom: 2rem;
+}
+/* menu desplegable */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    z-index: 1001;
+    position: relative;
+}
+
+.hamburger {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: var(--primary);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Estilos cuando el menú está abierto */
+.menu-toggle.active .hamburger {
+    background: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+.hamburger{
+    background-color:#E74C3C;
+}
+.menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+    
+    top: 0;
+}
+/* Sección de contacto */
+.content {
+    padding: 3rem 2rem;
+    background-color: #fff; /* Fondo blanco para la sección de contacto */
+    border-radius: 8px; /* Bordes suaves */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.37); /* Sutil sombra */
+    margin: 2rem auto; /* Centrar y agregar margen */
+    max-width: 600px; /* Ancho máximo para el contenido */
+}
+
+.content h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.content-form {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 20px); /* Ancho completo con padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.content-form button[type="submit"] {
+    background-color: #007bff; /* Color de acento para el botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.content-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Sección de redes sociales */
+.redes-sociales {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #09305a; /* Mismo color de fondo */
+}
+
+.redes-sociales h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.iconos-redes a {
+    display: inline-block;
+    margin: 0 0.8rem;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.iconos-redes a:hover {
+    color: #007bff; /* Color de acento al pasar el mouse */
+}
+
+/* Footer */
+.footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #fff;
+}

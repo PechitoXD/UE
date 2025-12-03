@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <title>Nuestra Institución: Sobre Nosotros</title>
+</head>
+<body>
+    <div class="presentacion" id="nosotros">
+
+        <div class="menu-toggle-container">
+            <div id="menu-toggle" class="hamburger-icon">
+                 <span></span>
+                 <span></span>
+                 <span></span>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="naver" id="mainNav">
+                <a href="index.html">Inicio</a>
+                <a href="organigrama.html">Organigrama</a>
+                <a href="Programa.html">Programa</a>
+                <a href="nosotros.html">Sobre nosotros</a>
+                <a href="ubicacion.html">Ubicación</a>
+                <a href="contacto.html">Contáctanos</a>
+            </div>
+            <h1><strong>Sobre Nuestra Institución</strong></h1>
+            <p><strong>Conoce nuestra historia, misión y valores.</strong></p>
+        </div>
+    </div>
+
+    <div class="content" id="nosotrosContenido"> <h1>Nuestra Historia</h1>
+        <div class="content-info">
+            <div class="critica-card">
+                <div class="foto" style="background-image: url('imagenes/nosotros.jpg');"></div>
+                <div class="texto">
+                    <h3>Nuestros Inicios</h3>
+                    <p>Fundada en 1985, nuestra institución comenzó con la visión de inspirar y capacitar a nustros estudiantes. A lo largo de los años, hemos crecido y evolucionado, adaptándonos a los desafíos y oportunidades, siempre manteniendo nuestro compromiso con la excelencia académica, la integridad, el respeto y la responsabilidad social..</p>
+                </div>
+            </div>
+            <div class="critica-card">
+                <div class="foto" style="background-image: url('imagenes/laotra.jpg');"></div>
+                <div class="texto">
+                    <h3>Nuestra Misión y Valores</h3>
+                    <p>Nuestra misión es cultivar un ambiente de aprendizaje excepcional, donde la excelencia académica se entrelaza con la formación integral de nuestros estudiantes, todo ello cimentado en valores de integridad, respeto y responsabilidad social, para así formar líderes capaces de transformar positivamente su entorno.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 U.E. LA CUADRA DE BOLIVAR. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="https://www.instagram.com/lacuadradebolivar/?igsh=OGwwbzhpaGxwaGhv#">@lacuadradebolivar</a></p>
+    </footer>
+    <script>
+               
+        // --- Script para el Menú Hamburguesa ---
+   const menuToggle = document.getElementById('menu-toggle');
+   // Cambia 'mainNav' por el ID correcto de este archivo: 'organigaramaNaver'
+   const mainNav = document.getElementById('mainNav'); // <--- ¡Cambiado aquí!
+   const body = document.body;
+   
+   // Asegúrate de que el elemento de navegación fue encontrado antes de añadir listeners
+   if (mainNav) { // <--- Añade esta comprobación para evitar errores si el elemento no existe
+       menuToggle.addEventListener('click', function() {
+           // Alternar la clase 'is-open' en la navegación para mostrarla/ocultarla
+           mainNav.classList.toggle('is-open');
+           // Alternar la clase 'menu-open' en el icono para animarlo (opcional)
+           menuToggle.classList.toggle('menu-open');
+           // Alternar la clase 'no-scroll' en el body para controlar el scroll
+           body.classList.toggle('no-scroll');
+       });
+   
+       // Opcional: Cerrar el menú si se hace clic en un enlace
+       const navLinks = mainNav.querySelectorAll('a');
+       navLinks.forEach(link => {
+           link.addEventListener('click', function() {
+               mainNav.classList.remove('is-open');
+               menuToggle.classList.remove('menu-open');
+               body.classList.remove('no-scroll');
+           });
+       });
+   } else {
+       console.error("Elemento de navegación con ID 'organigaramaNaver' no encontrado.");
+   }
+       </script>     
+    </body>
+</html>

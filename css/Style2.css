@@ -1,0 +1,239 @@
+/* ===== ESTILOS PARA EL MENÚ DESPLEGABLE ===== */
+
+/* Contenedor del menú móvil */
+.menu-mobile {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.418);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: rgb(255, 0, 0);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle.active {
+    transform: rotate(90deg);
+}
+
+/* Navegación principal */
+.naver {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 0;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.naver a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    font-weight: 500;
+    font-size: 1.05rem;
+    position: relative;
+}
+
+.naver a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.naver a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: all 0.3s;
+    transform: translateX(-50%);
+}
+
+.naver a:hover::after {
+    width: 70%;
+}
+
+/* ===== VERSIÓN MÓVIL ===== */
+@media (max-width: 768px) {
+    .menu-mobile {
+        display: flex;
+    }
+    
+    .naver {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .naver.active {
+        max-height: 100vh;
+        padding: 10px 0;
+    }
+    
+    .naver a {
+        width: 90%;
+        text-align: center;
+        margin: 5px auto;
+        padding: 12px 15px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .naver a:last-child {
+        border-bottom: none;
+    }
+    
+    .naver a::after {
+        display: none;
+    }
+    
+    /* Ajuste para que el contenido no quede oculto */
+    body {
+        padding-top: 60px;
+    }
+}
+
+/* ===== EFECTO DE SCROLL ===== */
+.scroll-down .menu-mobile {
+    transform: translateY(-100%);
+}
+
+.scroll-up .menu-mobile {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el menú en modo móvil (inicialmente oculto) */
+.naver.mobile-menu { /* <--- Remove .mobile-menu here */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Estilos para mostrar el menú cuando está abierto */
+.naver.mobile-menu.is-open { /* <--- Remove .mobile-menu here */
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Original desktop styles for .naver (ensure these are outside media queries or in a min-width one) */
+.overlay .naver {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex; /* Desktop display */
+    flex-direction: row;
+    /* ... other desktop styles */
+}
+
+/* Hide the regular nav and show the toggle button on mobile */
+@media (max-width: 768px) {
+    .naver#mainNav { /* Target the specific nav element */
+        display: none; /* Hide the desktop nav */
+    }
+
+    .menu-toggle-container {
+        display: flex; /* Show the hamburger button */
+        /* Ensure correct positioning for the button on mobile */
+        position: absolute; /* Or fixed, depending on desired behavior */
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+
+    /* Styles for the mobile menu when it's *open* */
+    /* Target the nav element when it has the 'is-open' class */
+    .naver#mainNav.is-open { /* <--- Change selector here */
+        display: flex; /* Show it as a flex container */
+        position: fixed; /* Make it a fullscreen overlay */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+        flex-direction: column; /* Stack links vertically */
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        /* Opacity and visibility for transition (optional but good) */
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+     /* Ensure links inside the mobile menu are styled correctly */
+     .naver#mainNav.is-open a {
+         color: white; /* Example color */
+         font-size: 1.5em; /* Example size */
+         margin: 15px 0; /* Example spacing */
+         /* Remove desktop hover styles if they interfere */
+         border-bottom: none;
+     }
+
+    /* If you want the transition, you also need the initial hidden state on mobile */
+    /* This rule ensures the menu is hidden on mobile BEFORE 'is-open' is added,
+       but allows for transition */
+    .naver#mainNav { /* Target the nav on mobile */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+}
+
+/* Ensure navigation is back to desktop styles above mobile breakpoint */
+@media (min-width: 769px) {
+    .naver#mainNav {
+        display: flex !important; /* Override mobile display: none */
+        /* Reset any mobile-specific styles */
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background-color: transparent; /* Or your desktop background */
+        flex-direction: row;
+        opacity: 1;
+        visibility: visible;
+        z-index: auto; /* Or your desired desktop z-index */
+    }
+     .menu-toggle-container {
+         display: none !important; /* Hide button on desktop */
+     }
+}

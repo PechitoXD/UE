@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.organigrama-container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.organizacion-title {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.nivel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.director, .subdirector, .doc-pedagogico, .doc-intercultural {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.secretarias {
+    display: flex;
+}
+
+.secretaria {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+}
+
+.sub-niveles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sub-nivel {
+    width: 45%; /* Ajusta según sea necesario */
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #eee;
+}
+
+.docentes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.docentes-inicial, .docentes-primaria {
+    width: 45%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.docentes-titulo {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.docente {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.cargo {
+    font-weight: bold;
+}

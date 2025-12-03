@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Style.css"> <title>Programas de la Institución</title>
+</head>
+<body>
+    <div class="presentacion" id="programa">
+
+        <div class="menu-toggle-container">
+            <div id="menu-toggle" class="hamburger-icon">
+                 <span></span>
+                 <span></span>
+                 <span></span>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="naver" id="mainNav">
+                <a href="index.html">Inicio</a>
+                <a href="organigrama.html">Organigrama</a>
+                <a href="Programa.html">Programa</a>
+                <a href="nosotros.html">Sobre nosotros</a>
+                <a href="ubicacion.html">Ubicación</a>
+                <a href="contacto.html">Contáctanos</a>
+            </div>
+            <h1><strong>Programas de la Institución</strong></h1>
+            <p><strong>Formación de calidad para el futuro.</strong></p>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Nuestros Programas</h1>
+        <div class="content-info"> 
+            <div class="programa">
+                <img src="imagenes/laotra.jpg" alt="">
+                <h3>Programa de Ciencias</h3>
+                <p>Formación en áreas como biología, química y física.</p>
+            </div>
+            <div class="programa">
+                <img src="imagenes/primera.jpg" alt="">
+                <h3>Programa de Humanidades</h3>
+                <p>Enfoque en literatura, historia y filosofía.</p>
+            </div>
+            <div class="programa">
+                <img src="imagenes/computacion.jpg" alt="">
+                <h3>Programa de Tecnología</h3>
+                <p>Cursos en programación, desarrollo web y ciberseguridad.</p>
+            </div>
+            <div class="programa">
+                <img src="imagenes/contacto.jpg" alt="">
+                <h3>Programa de Artes</h3>
+                <p>Exploración en música, pintura, escultura y teatro.</p>
+            </div>
+            </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 U.E. LA CUADRA DE BOLIVAR. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="https://www.instagram.com/lacuadradebolivar/?igsh=OGwwbzhpaGxwaGhv#">@lacuadradebolivar</a></p>
+    </footer>
+    <script>
+               
+        // --- Script para el Menú Hamburguesa ---
+   const menuToggle = document.getElementById('menu-toggle');
+   // Cambia 'mainNav' por el ID correcto de este archivo: 'organigaramaNaver'
+   const mainNav = document.getElementById('mainNav'); // <--- ¡Cambiado aquí!
+   const body = document.body;
+   
+   // Asegúrate de que el elemento de navegación fue encontrado antes de añadir listeners
+   if (mainNav) { // <--- Añade esta comprobación para evitar errores si el elemento no existe
+       menuToggle.addEventListener('click', function() {
+           // Alternar la clase 'is-open' en la navegación para mostrarla/ocultarla
+           mainNav.classList.toggle('is-open');
+           // Alternar la clase 'menu-open' en el icono para animarlo (opcional)
+           menuToggle.classList.toggle('menu-open');
+           // Alternar la clase 'no-scroll' en el body para controlar el scroll
+           body.classList.toggle('no-scroll');
+       });
+   
+       // Opcional: Cerrar el menú si se hace clic en un enlace
+       const navLinks = mainNav.querySelectorAll('a');
+       navLinks.forEach(link => {
+           link.addEventListener('click', function() {
+               mainNav.classList.remove('is-open');
+               menuToggle.classList.remove('menu-open');
+               body.classList.remove('no-scroll');
+           });
+       });
+   } else {
+       console.error("Elemento de navegación con ID 'organigaramaNaver' no encontrado.");
+   }
+       </script>   
+</body>
+</html>
